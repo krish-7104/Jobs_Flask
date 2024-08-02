@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    <section class="w-full min-h-[100vh] max-w-5xl mx-auto py-10">
+      <h1 class="text-4xl font-bold mb-10 text-center">Hello world!</h1>
+      <img
+        src="/static/banner.jpg"
+        alt=""
+        class="w-full h-[300px] object-cover rounded-xl"
+      />
+      <h2></h2>
+      <p class="mt-6 text-justify">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Consequat facilisis
+        facilisi laoreet proin tristique varius tortor. Nec iaculis commodo eu
+        ridiculus malesuada. Nullam justo nisi consectetur accumsan vitae
+        venenatis vitae sed. Per purus egestas non, felis suscipit risus.
+        Ultricies molestie senectus dui lobortis montes enim quisque.
+      </p>
+      <p class="mt-6 text-justify">
+        At mollis facilisi leo imperdiet vehicula. Sem auctor ad ad cras sem
+        nullam facilisi. Fusce suspendisse metus eu netus suscipit est taciti
+        suspendisse. Mi pellentesque tristique faucibus ultricies dolor id elit.
+        Nunc donec velit, amet lectus rhoncus mauris lacinia est. Nec praesent
+        fringilla malesuada cursus iaculis lorem augue. Tellus semper eget urna;
+        nascetur at ac.
+      </p>
+      <h2 class="text-3xl font-bold mt-10 mb-6 text-center">Job Openings</h2>
+      <div>{% for job in jobs %} {% include 'jobcard.html' %} {% endfor %}</div>
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded-md font-medium mx-auto block mt-6"
+      >
+        Contact Us
+      </button>
+    </section>
+  </body>
+</html>
