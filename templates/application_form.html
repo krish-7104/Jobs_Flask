@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form - {{job['title']}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    <section class="w-full min-h-[100vh] max-w-4xl mx-auto py-10 px-4">
+      <h1 class="text-4xl font-bold mb-6 text-center">
+        Application Form - {{job['title']}}
+      </h1>
+      <form class="space-y-6" action="/apply/{{job['id']}}" method="post">
+        <div class="flex flex-col">
+          <label for="full-name" class="text-lg font-medium mb-2"
+            >Full Name</label
+          >
+          <input
+            type="text"
+            id="full-name"
+            name="full_name"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="John Doe"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="email" class="text-lg font-medium mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="john.doe@example.com"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="linkedin" class="text-lg font-medium mb-2"
+            >LinkedIn Profile</label
+          >
+          <input
+            type="url"
+            id="linkedin"
+            name="linkedin"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="https://www.linkedin.com/in/johndoe"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="phone-number" class="text-lg font-medium mb-2"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            id="phone-number"
+            name="phone_number"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="+1-234-567-8901"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="experience" class="text-lg font-medium mb-2"
+            >Experience</label
+          >
+          <textarea
+            id="experience"
+            name="experience"
+            rows="4"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="Describe your work experience"
+            required
+          ></textarea>
+        </div>
+        <div class="flex flex-col">
+          <label for="resume_link" class="text-lg font-medium mb-2"
+            >Resume Link</label
+          >
+          <input
+            type="url"
+            id="resume_link"
+            name="resume_link"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="https://www.example.com/resume"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="education" class="text-lg font-medium mb-2"
+            >Education</label
+          >
+          <textarea
+            id="education"
+            name="education"
+            rows="4"
+            class="border border-gray-300 p-3 rounded-md"
+            placeholder="List your educational qualifications"
+            required
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-500 text-white px-6 py-3 rounded-md font-medium mx-auto block"
+        >
+          Submit Application
+        </button>
+      </form>
+    </section>
+  </body>
+</html>

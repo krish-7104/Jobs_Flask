@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{job['title']}} - Job Description</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    {% if not job %}
+    <section class="w-full min-h-[100vh] max-w-4xl mx-auto py-10 px-4">
+      <h1 class="text-4xl font-bold mb-6 text-center">No Job Found!</h1>
+    </section>
+    {% endif %} {% if job %}
+    <section class="w-full min-h-[100vh] max-w-4xl mx-auto py-10 px-4">
+      <h1 class="text-4xl font-bold mb-6 text-center">{{job['title']}}</h1>
+      <div class="mb-6">
+        <img
+          src="/static/banner.jpg"
+          alt="Job Banner"
+          class="w-full h-[300px] object-cover rounded-xl"
+        />
+      </div>
+      <p class="text-lg mb-2"><b>Location:</b> {{job.location}}</p>
+      <p class="text-lg mb-6">
+        <b>Salary:</b> {{job.currency}}. {{job.salary}}
+      </p>
+      <h2 class="text-2xl font-bold mb-4">Responsibilities</h2>
+      <ul class="list-disc list-inside mb-6">
+        {% for responsibility in job.responsibilities.split(";") %}
+        <li>{{responsibility}}</li>
+        {% endfor %}
+      </ul>
+      <h2 class="text-2xl font-bold mb-4">Requirements</h2>
+      <ul class="list-disc list-inside mb-6">
+        {% for requirement in job.requirements.split(";") %}
+        <li>{{requirement}}</li>
+        {% endfor %}
+      </ul>
+
+      <button
+        onclick="window.open(`/apply/{{job['id']}}`, '_self')"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md font-medium mx-auto block mt-6"
+      >
+        Apply Now
+      </button>
+    </section>
+    {% endif %}
+  </body>
+</html>

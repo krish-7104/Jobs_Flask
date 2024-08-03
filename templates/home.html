@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Job Postings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
   </style>
   <body>
     <section class="w-full min-h-[100vh] max-w-5xl mx-auto py-10">
-      <h1 class="text-4xl font-bold mb-10 text-center">Hello world!</h1>
+      <h1 class="text-4xl font-bold mb-10 text-center">Job Postings!</h1>
       <img
         src="/static/banner.jpg"
         alt=""
@@ -46,11 +46,14 @@
       </p>
       <h2 class="text-3xl font-bold mt-10 mb-6 text-center">Job Openings</h2>
       <div>{% for job in jobs %} {% include 'jobcard.html' %} {% endfor %}</div>
-      <button
-        class="bg-blue-500 text-white px-4 py-2 rounded-md font-medium mx-auto block mt-6"
-      >
-        Contact Us
-      </button>
+      <div class="flex justify-center items-center">
+        <a
+          href="mailto:krishjotaniya71@gmail.com"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md font-medium mx-auto block mt-6 inline-block text-center"
+        >
+          Contact Us
+        </a>
+      </div>
     </section>
   </body>
 </html>
