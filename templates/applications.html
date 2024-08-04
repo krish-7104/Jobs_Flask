@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Applications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    <section class="w-full min-h-[100vh] max-w-6xl mx-auto py-10 px-4">
+      <h1 class="text-3xl font-bold mb-6 text-center">All Applications</h1>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white">
+          <thead>
+            <tr>
+              <th class="py-2 px-4 border-b text-left">Full Name</th>
+              <th class="py-2 px-4 border-b text-left">Email</th>
+              <th class="py-2 px-4 border-b text-left">LinkedIn</th>
+              <th class="py-2 px-4 border-b text-left">Phone Number</th>
+              <th class="py-2 px-4 border-b text-left">Resume Link</th>
+              <th class="py-2 px-4 border-b text-left">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for data in applications %}
+            <tr>
+              <td class="py-2 px-4 border-b text-sm">{{data['full_name']}}</td>
+              <td class="py-2 px-4 border-b text-sm">{{data['email']}}</td>
+              <td class="py-2 px-4 border-b text-sm">
+                <a
+                  href="{{data['linkedin']}}"
+                  target="_blank"
+                  class="text-blue-500"
+                  >LinkedIn</a
+                >
+              </td>
+              <td class="py-2 px-4 border-b text-sm">
+                {{data['phone_number']}}
+              </td>
+              <td class="py-2 px-4 border-b text-sm">
+                <a
+                  href="{{data['resume_link']}}"
+                  target="_blank"
+                  class="text-blue-500"
+                  >Resume</a
+                >
+              </td>
+              <td class="py-2 px-4 border-b text-sm">
+                <a
+                  href="application/{{data['id']}}"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >View Details</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

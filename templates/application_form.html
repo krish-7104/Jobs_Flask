@@ -28,7 +28,7 @@
       <form class="space-y-6" action="/apply/{{job['id']}}" method="post">
         <div class="flex flex-col">
           <label for="full-name" class="text-lg font-medium mb-2"
-            >Full Name</label
+            >Full Name *</label
           >
           <input
             type="text"
@@ -40,7 +40,7 @@
           />
         </div>
         <div class="flex flex-col">
-          <label for="email" class="text-lg font-medium mb-2">Email</label>
+          <label for="email" class="text-lg font-medium mb-2">Email *</label>
           <input
             type="email"
             id="email"
@@ -52,7 +52,7 @@
         </div>
         <div class="flex flex-col">
           <label for="linkedin" class="text-lg font-medium mb-2"
-            >LinkedIn Profile</label
+            >LinkedIn Profile *</label
           >
           <input
             type="url"
@@ -64,7 +64,7 @@
         </div>
         <div class="flex flex-col">
           <label for="phone-number" class="text-lg font-medium mb-2"
-            >Phone Number</label
+            >Phone Number *</label
           >
           <input
             type="tel"
@@ -77,7 +77,7 @@
         </div>
         <div class="flex flex-col">
           <label for="experience" class="text-lg font-medium mb-2"
-            >Experience</label
+            >Experience *</label
           >
           <textarea
             id="experience"
@@ -90,7 +90,7 @@
         </div>
         <div class="flex flex-col">
           <label for="resume_link" class="text-lg font-medium mb-2"
-            >Resume Link</label
+            >Resume Link *</label
           >
           <input
             type="url"
@@ -100,19 +100,9 @@
             placeholder="https://www.example.com/resume"
           />
         </div>
-        <div class="flex flex-col">
-          <label for="education" class="text-lg font-medium mb-2"
-            >Education</label
-          >
-          <textarea
-            id="education"
-            name="education"
-            rows="4"
-            class="border border-gray-300 p-3 rounded-md"
-            placeholder="List your educational qualifications"
-            required
-          ></textarea>
-        </div>
+        <p class="text-red-500 text-center font-medium">
+          * Fields are Required.
+        </p>
         <button
           type="submit"
           class="bg-blue-500 text-white px-6 py-3 rounded-md font-medium mx-auto block"

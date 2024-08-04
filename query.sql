@@ -9,6 +9,19 @@ CREATE TABLE jobs(
     PRIMARY KEY (id)
 );
 
+CREATE TABLE applications(
+	id INT NOT NULL AUTO_INCREMENT,
+    full_name VARCHAR(250) NOT NULL,
+    email VARCHAR(255) NOT NULL,	
+    linkedin VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    experience VARCHAR(2000) NOT NULL,
+    resume_link VARCHAR(255) NOT NULL,
+	job_id INT,
+    PRIMARY KEY (id),
+	FOREIGN KEY (job_id) REFERENCES jobs(id)
+);
+
 INSERT INTO jobs (title, location, salary, currency, responsibilities, requirements)
 VALUES 
 ('Software Engineer', 'Bangalore, Karnataka', 1200000, 'Rs', 'Develop and maintain software applications; Collaborate with cross-functional teams; Participate in code reviews.', 'Bachelor\'s degree in Computer Science; 3+ years of experience in software development; Proficiency in Java and Python.');
@@ -37,15 +50,4 @@ INSERT INTO jobs (title, location, salary, currency, responsibilities, requireme
 VALUES 
 ('Front-End Develodper', 'Delhi, Delhi', 950000, 'Rs', 'Build and maintain the user interface of web applications; Ensure responsiveness and performance; Collaborate with back-end developers and designers.', 'Bachelor\'s degree in Computer Science or related field; 2+ years of experience in front-end development; Proficiency in HTML, CSS, and JavaScript frameworks like React or Angular.');
 
-CREATE TABLE applications(
-	id INT NOT NULL AUTO_INCREMENT,
-    full_name VARCHAR(250) NOT NULL,
-    email VARCHAR(255) NOT NULL,	
-    linkedin VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(255) NOT NULL,
-    experience VARCHAR(2000) NOT NULL,
-    resume_link VARCHAR(255) NOT NULL,
-	job_id INT,
-    PRIMARY KEY (id),
-	FOREIGN KEY (job_id) REFERENCES jobs(id)
-);
+

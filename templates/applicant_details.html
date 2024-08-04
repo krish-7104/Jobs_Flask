@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Details - {{applicant['full_name']}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    <section class="w-full min-h-[100vh] max-w-4xl mx-auto py-10 px-4">
+      <h1 class="text-3xl font-bold mb-6 text-center">
+        Application Details - {{applicant['full_name']}}
+      </h1>
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">Full Name</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            {{applicant['full_name']}}
+          </p>
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">Email</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            {{applicant['email']}}
+          </p>
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">LinkedIn Profile</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            <a
+              href="{{applicant['linkedin']}}"
+              target="_blank"
+              class="text-blue-500"
+              >{{applicant['linkedin']}}</a
+            >
+          </p>
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">Phone Number</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            {{applicant['phone_number']}}
+          </p>
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">Experience</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            {{applicant['experience']}}
+          </p>
+        </div>
+        <div class="flex flex-col mb-4">
+          <label class="text-lg font-medium mb-2">Resume Link</label>
+          <p class="border border-gray-300 p-3 rounded-md">
+            <a
+              href="{{applicant['resume_link']}}"
+              target="_blank"
+              class="text-blue-500"
+              >Resume</a
+            >
+          </p>
+        </div>
+        <a
+          href="/admin/applications"
+          class="bg-blue-500 text-white px-6 py-3 rounded-md font-medium block text-center"
+        >
+          Back to All Applications
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

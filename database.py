@@ -20,6 +20,11 @@ def get_applications():
     with engine.connect() as conn:
         result = conn.execute(text("SELECT * FROM applications")).fetchall()
         return [row._asdict() for row in result]
+    
+def get_applicant_details(id):
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM applications WHERE id = :id"),{"id":id}).fetchone()
+        return result._asdict() if result else None
 
 def add_application(data, id):
     try:
