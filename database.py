@@ -23,7 +23,7 @@ def get_applications():
     
 def get_applicant_details(id):
     with engine.connect() as conn:
-        result = conn.execute(text("SELECT * FROM applications WHERE id = :id"),{"id":id}).fetchone()
+        result = conn.execute(text("SELECT * FROM applications WHERE id = :id"), {"id": id}).fetchone()
         return result._asdict() if result else None
 
 def add_application(data, id):
@@ -42,8 +42,24 @@ def add_application(data, id):
                 'resume_link': data['resume_link'],
                 'job_id': id,
             })
-            conn.commit()
+            conn.execute(text("COMMIT"))
             return {"status": True}
     except Exception as e:
         print(f"Error adding application: {e}")
         return {"status": False, "error": str(e)}
+
+def get_user_by_username(username):
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM users WHERE username = :username"), {"username": username}).fetchone()
+        return result._asdict() if result else None
+
+def get_user_by_id(user_id):
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM users WHERE id = :id"), {"id": user_id}).fetchone()
+        return result._asdict() if result else None
+
+def verify_user_credentials(username, password):
+    user = get_user_by_username(username)
+    if user and user['password'] == password:  
+        return True
+    return False
