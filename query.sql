@@ -22,6 +22,12 @@ CREATE TABLE applications(
 	FOREIGN KEY (job_id) REFERENCES jobs(id)
 );
 
+CREATE TABLE users(
+	username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+
 INSERT INTO jobs (title, location, salary, currency, responsibilities, requirements)
 VALUES 
 ('Software Engineer', 'Bangalore, Karnataka', 1200000, 'Rs', 'Develop and maintain software applications; Collaborate with cross-functional teams; Participate in code reviews.', 'Bachelor\'s degree in Computer Science; 3+ years of experience in software development; Proficiency in Java and Python.');
@@ -48,6 +54,6 @@ VALUES
 
 INSERT INTO jobs (title, location, salary, currency, responsibilities, requirements)
 VALUES 
-('Front-End Develodper', 'Delhi, Delhi', 950000, 'Rs', 'Build and maintain the user interface of web applications; Ensure responsiveness and performance; Collaborate with back-end developers and designers.', 'Bachelor\'s degree in Computer Science or related field; 2+ years of experience in front-end development; Proficiency in HTML, CSS, and JavaScript frameworks like React or Angular.');
+('Front-End Developer', 'Delhi, Delhi', 950000, 'Rs', 'Build and maintain the user interface of web applications; Ensure responsiveness and performance; Collaborate with back-end developers and designers.', 'Bachelor\'s degree in Computer Science or related field; 2+ years of experience in front-end development; Proficiency in HTML, CSS, and JavaScript frameworks like React or Angular.');
 
 
